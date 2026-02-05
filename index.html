@@ -1,44 +1,55 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>VHDeS – Logga in</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="myForm">
-        <label for="username">Please enter your username:</label>
-        <input type="text" id="username" name="username">
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-        <br>
-        <input type="submit" value="Submit">
-    </form>
+
+    <div class="login-box">
+        <h1>VHDeS.se</h1>
+        <p>Logga in för att hyra en elscooter</p>
+
+        <form id="myForm">
+            <label for="username">Användarnamn</label>
+            <input type="text" id="username" name="username">
+
+            <label for="password">Lösenord</label>
+            <input type="password" id="password" name="password">
+
+            <p id="errorMessage" class="error hidden">
+                Fel användarnamn eller lösenord
+            </p>
+
+            <input type="submit" value="Logga in">
+        </form>
+    </div>
 
     <script>
         let username = null;
         const form = document.getElementById('myForm');
+        const errorMessage = document.getElementById('errorMessage');
 
         form.addEventListener('submit', function (event){
-            event.preventDefault(); //behövs för att formen ska fungera!
-            
-            //Dessa två tar ut värdet, aka texten från de två inputsen
+            event.preventDefault();
+
             const text = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            
-            //Debuggande för att se att texten tas in correct
+
             console.log(text + password);
-            
-            //Extremt enkel kontroll av användarn och lösenord!
-            //Bör göras på backend istället för frontend men men ...
+
             if(text == "test" && password == "paswrd"){
                 username = text;
-                //skickar användaren med deras användarnamn till en ny sida
-                //Även detta är inte ett säkert sätt att skicka information, men men ...
-                window.location.href = `javascript exempel 4,2.html?username=${encodeURIComponent(username)}`;
+
+                window.location.href =
+                `javascript exempel 4,2.html?username=${encodeURIComponent(username)}`;
             }
             else{
-                alert("Fel användarnamn eller lösenord!");
+       
+                errorMessage.classList.remove("hidden");
             }
         });
     </script>
