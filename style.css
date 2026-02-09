@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: lightblue;
+    background: rgb(94, 164, 255);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -13,9 +13,53 @@ body {
     padding: 30px;
     width: 320px;
     border-radius: 12px;
+    box-shadow: 0 30px 25px rgba(0, 0, 0, 0.25);
     text-align: center;
 }
 
 .login-box h1 {
     margin-bottom: 5px;
+}
+
+.login-box p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
 }

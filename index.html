@@ -28,30 +28,27 @@
         </form>
     </div>
 
-    <script>
+       <script>
         let username = null;
         const form = document.getElementById('myForm');
         const errorMessage = document.getElementById('errorMessage');
 
-        form.addEventListener('submit', function (event){
-            event.preventDefault();
+      form.addEventListener('submit', function (event){
+    event.preventDefault();
 
-            const text = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+    errorMessage.classList.add("hidden");
 
-            console.log(text + password);
+    const text = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-            if(text == "test" && password == "paswrd"){
-                username = text;
-
-                window.location.href =
-                `javascript exempel 4,2.html?username=${encodeURIComponent(username)}`;
-            }
-            else{
-       
-                errorMessage.classList.remove("hidden");
-            }
-        });
+    if(text == "test" && password == "paswrd"){
+        window.location.href =
+        `profile.html?username=${encodeURIComponent(text)}`;
+    }
+    else{
+        errorMessage.classList.remove("hidden");
+    }
+});
     </script>
 </body>
 </html>
