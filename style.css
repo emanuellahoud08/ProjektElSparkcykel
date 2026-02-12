@@ -63,3 +63,22 @@ input[type="submit"] {
 .hidden {
     display: none;
 }
+
+.scooter-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+nav {
+  
+    width: 100%;
+    background-color: #2fd360;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
