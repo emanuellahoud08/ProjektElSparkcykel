@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hyr elsparkcykel</title>
 
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <nav>
+    <nav>
         <h2>VHDeS</h2>
         <ul>
-            <li><a href="">Hem</a></li>
-            <li><a href="">Hyr</a></li>
-            <li><a href="">Profil</a></li>
+            <li><a href="#">Hem</a></li>
+            <li><a href="#">Hyr</a></li>
+            <li><a href="#">Profil</a></li>
         </ul>
     </nav>
 
@@ -24,29 +23,84 @@
 
         <div class="scooter-container">
 
-            <div class="scooter-kort" onclick="hyrSparkcykel(this)">
-                <img src="scooter1.jpg" alt="Sparkcykel 1">
+            <div class="scooter-kort" onclick="visaInfo('standard')">
+                <img src="https://i.redd.it/8km5nf6ejx9d1.jpeg" alt="Standard">
                 <h3>Standard</h3>
+                <p>15 kr/km</p>
+                <p>120 m bort</p>
             </div>
 
-   
-            <div class="scooter-kort" onclick="hyrSparkcykel(this)">
-                <img src="scooter2.jpg" alt="Sparkcykel 2">
+            <div class="scooter-kort" onclick="visaInfo('premium')">
+                <img src="https://kukirin-escooter.com/cdn/shop/files/G3_Pro_scooters_3.jpg?v=1751364216&width=1000" alt="Premium">
                 <h3>Premium</h3>
+                <p>30 kr/km</p>
+                <p>80 m bort</p>
             </div>
 
-  
-            <div class="scooter-kort" onclick="hyrSparkcykel(this)">
-                <img src="scooter3.jpg" alt="Sparkcykel 3">
+            <div class="scooter-kort" onclick="visaInfo('pro')">
+                <img src="https://wheelyshop.se/cdn/shop/files/kukirin-g4-elsparkcykel-875772.png?v=1745561758" alt="Pro">
                 <h3>Pro</h3>
+                <p>25 kr/km</p>
+                <p>200 m bort</p>
             </div>
 
         </div>
+
+        <div id="infoBox" class="info-box hidden">
+            <h2 id="infoTitle"></h2>
+            <ul id="infoList"></ul>
+            <button class="hyr-btn">Hyr elsparkcykel</button>
+        </div>
+
     </main>
 
     <script>
-      
-        
+        function visaInfo(typ) {
+            const infoBox = document.getElementById("infoBox");
+            const infoTitle = document.getElementById("infoTitle");
+            const infoList = document.getElementById("infoList");
+
+            infoList.innerHTML = "";
+
+            let specs = [];
+
+            if (typ === "standard") {
+                infoTitle.textContent = "Specifikationer";
+                specs = [
+                    "Maxhastighet: 20 km/h",
+                    "Räckvidd: 20 km",
+                    "Perfekt för korta resor"
+                ];
+            }
+
+            if (typ === "premium") {
+                infoTitle.textContent = "Specifikationer";
+                specs = [
+                    "Maxhastighet: 25 km/h",
+                    "Räckvidd: 35 km",
+                    "Extra bekväm"
+                ];
+            }
+
+            if (typ === "pro") {
+                infoTitle.textContent = "Specifikationer";
+                specs = [
+                    "Maxhastighet: 45 km/h",
+                    "Räckvidd: 40 km",
+                    "För jappningar",
+                    "Kräver körkort"
+                    
+                ];
+            }
+
+            specs.forEach(text => {
+                const li = document.createElement("li");
+                li.textContent = text;
+                infoList.appendChild(li);
+            });
+
+            infoBox.classList.remove("hidden");
+        }
     </script>
 
 </body>
