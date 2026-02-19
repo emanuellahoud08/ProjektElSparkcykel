@@ -55,15 +55,18 @@
     </main>
 
     <script>
+          // Funktion som körs när man klickar på en elsparkcykel. Parametern "typ" avgör vilken modell som valdes.
         function visaInfo(typ) {
             const infoBox = document.getElementById("infoBox");
             const infoTitle = document.getElementById("infoTitle");
             const infoList = document.getElementById("infoList");
 
-            infoList.innerHTML = "";
+            infoList.innerHTML = "";   // Rensar gammal information så att inget ligger kvar
+
 
             let specs = [];
 
+            // Om användaren klickade på Standard, då är specsen:
             if (typ === "standard") {
                 infoTitle.textContent = "Specifikationer";
                 specs = [
@@ -73,6 +76,7 @@
                 ];
             }
 
+            // Om användaren klickade på Premium, då är specsen:
             if (typ === "premium") {
                 infoTitle.textContent = "Specifikationer";
                 specs = [
@@ -82,25 +86,28 @@
                 ];
             }
 
+            // Om användaren klickade på Pro, då är specsen:
             if (typ === "pro") {
                 infoTitle.textContent = "Specifikationer";
                 specs = [
                     "Maxhastighet: 45 km/h",
                     "Räckvidd: 40 km",
-                    "För jappningar",
                     "Kräver körkort"
                     
                 ];
             }
 
+            // Loopar igenom alla specifikationer och lägger in dem som listpunkter i informationsrutan
             specs.forEach(text => {
                 const li = document.createElement("li");
                 li.textContent = text;
                 infoList.appendChild(li);
             });
 
+        // Tar bort klassen "hidden" så informationsrutan blir synlig
             infoBox.classList.remove("hidden");
         }
+        
     </script>
 
 </body>

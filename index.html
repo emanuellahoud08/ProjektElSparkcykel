@@ -15,36 +15,42 @@
 
         <form id="myForm">
             <label for="username">Användarnamn</label>
-            <input type="text" id="username" name="username">
+            <input type="text" id="username" name="username">   <!-- Fält där användaren skriver sitt användarnamn -->
 
             <label for="password">Lösenord</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password"> <!-- Lösenordsfält som visar prickar istället för texten man skriver) -->
 
             <p id="errorMessage" class="error hidden">
                 Fel användarnamn eller lösenord
             </p>
 
-            <input type="submit" value="Logga in">
+            <input type="submit" value="Logga in"> <!-- En knapp som skickar infon användaren har angett -->
         </form>
     </div>
 
        <script>
         let username = null;
-        const form = document.getElementById('myForm');
+        const form = document.getElementById('myForm'); // Hämtar "formuläret" från HTML med hjälp av id
         const errorMessage = document.getElementById('errorMessage');
 
+
+         // Lyssnar efter när formuläret skickas
       form.addEventListener('submit', function (event){
     event.preventDefault();
 
-    errorMessage.classList.add("hidden");
+    errorMessage.classList.add("hidden"); // Gömmer felmeddelandet
 
-    const text = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
 
+    const text = document.getElementById('username').value;  // Hämtar värdet som skrivits in i användarnamnsfältet
+    const password = document.getElementById('password').value; // Hämtar värdet från lösenordsfältet
+
+    // Kontrollerar om användarnamn och lösenord är rätt
     if(text == "test" && password == "paswrd"){
         window.location.href =
         `index1.html??username=${encodeURIComponent(text)}`;
     }
+
+     // Om inloggningen är fel visas felmeddelandet
     else{
         errorMessage.classList.remove("hidden");
     }
